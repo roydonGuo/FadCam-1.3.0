@@ -1,0 +1,443 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">FadCam</string>
+    <string name="app_icon_description">Pilih ikon dan nama untuk aplikasi Anda. Ini akan mengubah tampilannya di layar utama Anda.</string>
+    <string name="check_for_updates">Periksa pembaruan</string>
+    <string name="fadsec_info">FadCam adalah bagian dari rangkaian FadSec Lab. Untuk informasi lebih lanjut, klik \'lihat kode sumber\' di bawah ini.</string>
+
+
+    <string name="app_description">
+    <![CDATA[
+    FadCam adalah aplikasi perekaman video sumber terbuka bebas iklan yang mengutamakan privasi dengan tidak melacak atau mengumpulkan data apa pun. Aplikasi ini tersedia secara eksklusif di GitHub dan melalui tautan resmi yang disebutkan dalam BACA SAYA.
+    <br/><br/>
+    FadCam telah ditampilkan di saluran YouTube populer seperti <font color="#cfbafd">HowToMen</font> dan <font color="#cfbafd">Xtream Droid</font>, serta dibahas dalam <font color="#cfbafd">GrapheneOS</font> dan 55+ tempat penting lainnya.
+    ]]>
+</string>
+
+
+    <string name="view_source_code">Lihat Kode Sumber</string>
+    <string name="buy_me_a_coffee">Belikan saya kopi ☕</string>
+    <string name="contact">Kontak</string>
+    <string name="send_email">Kirim email</string>
+    <string name="join_community">Bergabunglah dengan komunitas untuk mendapatkan bantuan, berbagi ide, dan pembaruan aplikasi di masa mendatang</string>
+    <string name="privacy_information">Informasi Privasi</string>
+    <string name="copyright_info">© 2024 https://fadedhood.github.io/fadcam\nLicensed under GPL-3.0</string>
+    <integer-array name="video_framerate_array">
+        <item name="24">24</item>
+        <item name="30">30</item>
+        <item name="60">60</item>
+        <item name="90">90</item>
+    </integer-array>
+    <string name="mainpage_storage_indicator">\n    <![CDATA[
+    <font color=\'#FFFFFF\' style=\'font-size:16sp;\'><b>Available:</b></font><br>
+    <font color=\'#CCCCCC\' style=\'font-size:14sp;\'>%.2f GB / %.2f GB</font><br><br>
+    <font color=\'#FFFFFF\' style=\'font-size:16sp;\'><b>Record time (est.):</b></font><br>
+    <font color=\'#CCCCCC\' style=\'font-size:14sp;\'>FHD: %s<br>HD: %s<br>SD: %s</font><br><br>
+    <font color=\'#FFFFFF\' style=\'font-size:16sp;\'><b>Elapsed time:</b></font><br>
+    <font color=\'#77DD77\' style=\'font-size:14sp;\'>%02d:%02d</font><br>
+    <font color=\'#FFFFFF\' style=\'font-size:16sp;\'><b>Remaining time:</b></font><br>
+    <font color=\'#E43C3C\' style=\'font-size:14sp;\'>%s</font>
+    ]]>\n</string>
+    <string-array name="tips_widget">
+        <item>1/11 | Tekan lama pratinjau untuk menonaktifkannya.</item>
+        <item>2/11 | Tekan lama widget tanggal untuk memilih tampilan jam.</item>
+        <item>3/11 | Widget penyimpanan memperbarui ruang perekaman dalam waktu nyata.</item>
+        <item>4/11 | Widget statistik menunjukkan total video dan ruang yang digunakan.</item>
+        <item>5/11 | Mengubah kualitas video di pengaturan (HD, SD, FHD).</item>
+        <item>6/11 | Penyimpanan terbatas? Sesuaikan kualitas video untuk waktu perekaman yang lebih lama.</item>
+        <item>7/11 | Tambahkan watermark ke video di Pengaturan.</item>
+        <item>8/11 | Sematkan lokasi yang akurat dalam Watermark melalui pengaturan.</item>
+        <item>9/11 | Mau rekan dengan kamera depan? Pilih di Pengaturan.</item>
+        <item>10/11 | Preferensi Anda disimpan dan diterapkan dengan mulus.</item>
+        <item>11/11 | Butuh bantuan? Bergabunglah ke Discord kami melalui bagian Tentang.</item>
+    </string-array>
+    <string name="mainpage_video_info">\n    <![CDATA[
+    <font color=\'#FFFFFF\' style=\'font-size:12sp;\'><b>Videos: </b></font>
+    <font color=\'#D3D3D3\' style=\'font-size:11sp;\'>%d</font><br>
+    <font color=\'#FFFFFF\' style=\'font-size:12sp;\'><b>Used Space:</font>
+    <font color=\'#D3D3D3\' style=\'font-size:11sp;\'>%s</font>
+    ]]>\n</string>
+    <string name="button_start">Mulai</string>
+    <string name="button_pause">Jeda</string>
+    <string name="button_stop">Hentikan</string>
+    <string name="button_resume">Lanjutkan</string>
+    <string name="video_recording_started">Perekaman dimulai</string>
+    <string name="video_recording_stopped">Perekaman dihentikan</string>
+    <string name="video_recording_paused">Perekaman dijeda</string>
+    <string name="video_recording_resumed">Perekaman dilanjutkan</string>
+    <string name="current_camera">Kamera saat ini</string>
+    <string name="video_menu_del">Hapus</string>
+    <string name="video_menu_save">Simpan ke Galeri</string>
+    <string name="video_menu_rename">Ganti nama</string>
+    <string name="records_title">Rekaman</string>
+    <string name="nav_home">Beranda</string>
+    <string name="nav_records">Rekaman</string>
+    <string name="nav_settings">Pengaturan</string>
+    <string name="nav_about">Tentang</string>
+    <string name="button_settings_readme">Baca saya</string>
+    <string name="setting_cam_title">Pemilihan Kamera</string>
+    <string name="note_cam_sele">Pilih kamera \n(Default: Bagian belakang)</string>
+    <string name="button_settings_cam_back">Bagian belakang</string>
+    <string name="button_settings_cam_front">Bagian Depan</string>
+    <string name="setting_quailty_title">Kualitas Kamera</string>
+    <string name="setting_framerate_title">Framerate Video</string>
+    <string name="note_quailty">Pilih kualitas\n(Default: HD)</string>
+    <string name="note_framerate">Pilih framerate\n(Default: %1$d)</string>
+    <string name="setting_watermark">Watermark</string>
+    <string name="note_watermark">Pilih opsi watermark\n(Default: Waktu dengan FadCam)</string>
+    <string name="note_watermark_extra">Untuk menyimpan dengan cepat, pilih \'Tidak ada Watermark\'. Menambahkan watermark? Layak untuk ditunggu, hanya perlu waktu sedikit lebih lama untuk memprosesnya!</string>
+    <string name="setting_location_title">Lokasi Data</string>
+    <string name="note_location">Tambahkan lokasi data di watermark. \nMemerlukan GPS yang diaktifkan \n(Default: Dinonaktifkan)</string>
+    <string name="note_location_extra">Aktifkan GPS ponsel untuk menambahkan data lintang dan bujur ke watermark.</string>
+    <string name="button_setting_review">Tulis Ulusan 🌟</string>
+    <string name="dialog_clock_title">Pilih Tampilan Jam</string>
+    <string name="dialog_clock_timeonly">Hanya waktu</string>
+    <string name="dialog_clock_englishtime">Tanggal B.Inggris dengan waktu</string>
+    <string name="dialog_clock_Islamic_calendar">تاريخ التقويم الإسلامي</string>
+    <string name="ui_preview_area">Area Pratinjau</string>
+    <string-array name="easter_eggs_array">
+        <item>Waspada! Ini adalah area terbatas. Mulai merekam untuk mendapatkan akses.</item>
+        <item>Anda telah menemukan tombol rahasia! Ga ada gunanya kocak!</item>
+        <item>Cepat! Sistem akan meledak... atau mungkin hanya butuh rekaman untuk menenangkan diri</item>
+        <item>Nah, ini menjadi canggung sekarang...</item>
+        <item>Warna Bugatti kamu apa?</item>
+        <item>Saya tidak diprogram untuk melakukan apa yang Anda lakukan. Tunggu, kau mencoba meretasku?</item>
+    </string-array>
+    <string-array name="questions_array" tools:ignore="InconsistentArrays">
+        <item>PENAFIAN</item>
+        <item>Apakah Fadcam mengambil data pengguna?</item>
+        <item>Apakah ada iklan di FadCam?</item>
+        <item>Kenapa Fadkam meminta akses lokasi?</item>
+        <item>Apakah FadCam terhubung ke internet?</item>
+        <item>Apakah ada data yang disimpan di server eksternal?</item>
+        <item>Apa yang terjadi pada video saya setelah merekam?</item>
+        <item>Apakah FadCam membagikan data saya dengan pihak ketiga?</item>
+        <item> </item>
+        <item> </item>
+        <item>Umum</item>
+        <item>Mengapa penandaan air membutuhkan waktu lama?</item>
+        <item>Mengapa ada video \'temp\'?</item>
+        <item>Bagaimana cara mengubah kualitas video?</item>
+        <item>Dapatkah saya menonaktifkan pratinjau?</item>
+        <item>Bagaimana cara menyematkan lokasi saya di watermark?</item>
+        <item>Apakah preferensi saya tersimpan?</item>
+        <item>Dapatkah saya menjadwalkan rekaman?</item>
+        <item>Bagaimana cara memperbarui aplikasi?</item>
+        <item> </item>
+    </string-array>
+    <string-array name="answers_array" tools:ignore="InconsistentArrays">
+        <item>FadCam tidak membenarkan atau mendukung penggunaan perangkat lunak ini secara tidak etis atau ilegal. Penyalahgunaan, seperti pengawasan yang tidak sah atau pelanggaran privasi, sangat bertentangan dengan pedoman kami. Penulis tidak bertanggung jawab atas penyalahgunaan aplikasi ini.
+        </item>
+        <item>Tidak, FadCam tidak mengumpulkan data pengguna apa pun.</item>
+        <item>Tidak, FadCam sepenuhnya bebas iklan.</item>
+        <item>Untuk menambahkan info lokasi ke tanda air Anda.</item>
+        <item>Tidak, FadCam tidak terhubung ke internet.</item>
+        <item>Tidak, semua data disimpan di perangkat Anda.</item>
+        <item>Video Anda disimpan secara lokal di perangkat Anda.</item>
+        <item>Tidak, FadCam tidak membagikan atau mengumpulkan data apa pun.</item>
+        <item> </item>
+        <item> </item>
+        <item> </item>
+        <item>Tanda air disematkan dalam setiap bingkai video. Semakin panjang video, semakin banyak waktu yang dibutuhkan.</item>
+        <item>Video \'temp\' adalah rekaman asli Anda. File ini akan dihapus secara otomatis setelah pemberian tanda air. Jika penandaan air gagal, file \'temp\' akan tetap ada sebagai cadangan.</item>
+        <item>Mengubah kualitas video dalam pengaturan: HD, SD, or FHD.</item>
+        <item>Tekan lama area pratinjau untuk menonaktifkannya.</item>
+        <item>Aktifkan lokasi dalam pengaturan untuk data lokasi di tanda air. Ini akan menyematkan garis bujur dan garis lintang yang tepat.</item>
+        <item>Ya, preferensi dan semua pengaturan disimpan dan diterapkan secara mulus.",</item>
+        <item>Fitur ini akan segera hadir.</item>
+        <item>Periksa repositori resmi GitHub untuk mengetahui pembaruan.</item>
+        <item> </item>
+    </string-array>
+    <string name="dialog_welcome_title">Selamat datang FadCam!</string>
+    <string name="note_under_dev">Penting: Aplikasi ini sedang dalam tahap pengembangan. Fitur-fitur baru akan ditambahkan secara berkala.</string>
+    <string name="rencent_updates_title">Pembaruan Terbaru:</string>
+    <string name="upcoming_features_title">Fitur yang Akan Datang:</string>
+    <string name="stay_updated_title">Tetap Terupdate:</string>
+    <string name="button_readme_github">Repositori GitHub</string>
+    <string name="community_title">Bergabunglah dengan Komunitas kami:</string>
+    <string name="discord_title">Server Discord</string>
+    <string name="thankyou_msg">Terima kasih telah menggunakan FadCam!</string>
+    <string name="settings_title">Pengaturan</string>
+    <string name="array_watermark_time_fadcam">Waktu dengan Fadcam</string>
+    <string name="array_watermark_timeonly">Cap waktu</string>
+    <string name="array_watermark_nomark">Tidak ada Watermark</string>
+    <string name="recent_features">• Desain UI baru\n• Video sekarang disimpan secara internal di dalam aplikasi\n• Opsi untuk menyimpan video ke galeri\n• Penandaan air yang dapat disesuaikan\n• Integrasi ExoPlayer untuk pemutaran yang lebih baik\n• Data lokasi dalam tanda air\n• Opsi tanda air dinamis\n• Umpan balik tekan lama dengan animasi\n• Kustomisasi widget Tanggal dan Waktu</string>
+    <string name="upcoming_features">• Rekaman terjadwal otomatis \n• Pengunggahan otomatis ke Google Drive \n• Ikon aplikasi khusus \n• Kunci aplikasi untuk meningkatkan privasi \n• Editor video dalam aplikasi untuk tugas-tugas sederhana seperti pemangkasan \n• Dan masih banyak lagi fitur menarik lainnya!</string>
+    <string name="toast_video_not_found">Error: Video tidak ditemukan</string>
+    <string name="toast_video_saved">Video disimpan ke folder FadCam di Unduhan</string>
+    <string name="toast_video_save_fail">Gagal menyimpan video</string>
+    <string name="rename_video_title">Ganti Nama Video</string>
+    <string name="rename_video_hint">Masukkan nama baru</string>
+    <string name="universal_cancel">Batalkan</string>
+    <string name="toast_rename_name_empty">Nama tidak bisa kosong</string>
+    <string name="toast_rename_failed">Gagal mengganti nama video</string>
+    <string name="toast_rename_success">Video berhasil diubah namanya</string>
+    <string name="toast_rename_bad_video">Posisi tidak valid atau daftar video adalah nol</string>
+    <string name="dialog_del_title">Hapus Selamanya?</string>
+    <string name="dialog_del_notice">Apakah Anda yakin ingin menghapus video ini?</string>
+    <string name="dialog_del_confirm">Hapus</string>
+    <string name="dialog_multi_video_del_title">Basmi video? 💣💣</string>
+    <string name="dialog_multi_video_del_note">Apakah Anda benar-benar yakin bahwa Anda ingin membakar video-video ini dari peredaran? 🚀💥</string>
+    <string name="dialog_multi_video_del_yes">Ya, Entot Mereka! 🌋</string>
+    <string name="dialog_multi_video_del_no">Tidak, Simpan Mereka! 😅</string>
+    <string name="setting_language_title">Bahasa Aplikasi</string>
+    <string name="note_language">Pilih dari menu tarik-turun.\n(Default: English)</string>
+    <string name="location_permission_title">Izin Lokasi</string>
+    <string name="location_permission_description">Aplikasi ini memerlukan izin lokasi untuk menambahkan data lokasi ke video. Mohon berikan izin tersebut.</string>
+    <string name="up_to_date">Terbaru</string>
+    <string name="up_to_date_description">Anda sudah menggunakan versi terbaru.</string>
+    <string name="up_to_date_loading">Memeriksa pembaruan...</string>
+    <string name="update_available_title">Pembaruan Tersedia</string>
+    <string name="update_available_message">Versi baru (%1$s) tersedia. Untuk memperbarui, silakan kunjungi toko F-Droid atau repositori GitHub kami untuk informasi lebih lanjut.</string>
+    <string name="visit_fdroid">Kunjungi F-Droid</string>
+    <string name="visit_github">Kunjungi GitHub</string>
+    <string name="delete_all_videos_title">Hapus semua Video</string>
+    <string name="delete_all_videos_description">Apakah kamu yakin mau menghapus semua video?</string>
+    <string name="switched_front_camera">Beralih ke kamera depan</string>
+    <string name="switched_rear_camera">Beralih ke kamera belakang</string>
+    
+    <string name="more_options">Opsi Lainnya</string>
+    <string name="records_options_title">Opsi Rekaman</string>
+    <string name="setting_theme_title">Tema Aplikasi</string>
+    <string name="settings_option_theme">Pilih Tema</string>
+    <string name="settings_theme_changed">Tema diubah. Menerapkan perubahan...</string>
+    <string name="note_theme">Pilih tema aplikasi yang Anda sukai</string>
+    
+    <!-- App Icon Strings -->
+    <string name="setting_app_icon_title">Ikon Aplikasi</string>
+    <string name="setting_app_icon_desc">Ubah ikon dan nama aplikasi di peluncur</string>
+    <string name="app_icon_dialog_title">Pilih Ikon Aplikasi</string>
+    <string name="app_icon_changed">Ikon aplikasi diubah</string>
+    <string name="app_icon_preview">Pratinjau ikon aplikasi</string>
+    
+    <!-- Tab Lock Strings -->
+    <string name="setting_applock_title">Kunci Tab</string>
+    <string name="setting_applock_desc">Amankan video Anda dengan kunci PIN untuk tab Rekaman. \nUntuk keamanan Anda, tab Rekaman akan terkunci secara otomatis saat aplikasi masuk ke latar belakang atau ditutup. Anda harus membuka kunci lagi saat kembali</string>
+    <string name="setting_applock_configure">Konfigurasi</string>
+    <string name="applock_dialog_title">Opsi Kunci Tab</string>
+    <string name="applock_enable">Aktifkan Kunci Tab</string>
+    <string name="applock_disable">Nonaktifkan Kunci Tab</string>
+    <string name="applock_set_pin">Atur PIN</string>
+    <string name="applock_change_pin">Ubah PIN</string>
+    <string name="applock_remove_pin">Hapus PIN</string>
+    <string name="applock_pin_created">PIN berhasil dibuat</string>
+    <string name="applock_pin_removed">PIN berhasil dihapus</string>
+    
+    <!-- App Lock Verification Messages -->
+    <string name="applock_verify_to_enable">Verifikasi PIN untuk Mengaktifkan Kunci Tab</string>
+    <string name="applock_verify_to_disable">Verifikasi PIN untuk Menonaktifkan Kunci Tab</string>
+    <string name="applock_verify_to_change">Verifikasi PIN Saat Ini</string>
+    <string name="applock_verify_to_remove">Verifikasi PIN untuk Menghapus</string>
+    <string name="applock_verification_canceled">Verifikasi dibatalkan</string>
+    
+    <!-- Camera Settings -->
+    <string name="setting_back_lens_title">Lensa Kamera Belakang</string>
+    <string name="setting_back_lens_note">Pilih lensa tertentu jika tersedia mis. Lensa Sudut Lebar\n(Default: Utama (0))</string>
+    <string name="setting_back_lens_info_single">Hanya lensa utama</string>
+    <string name="setting_back_lens_info_single_v2">Hanya kamera belakang utama yang terdeteksi</string>
+    
+    <!-- Video Settings -->
+    <string name="setting_codec_title">Codec Video</string>
+    <string name="note_codec">Pilih codec\n(Default: %1$s)</string>
+    <string name="setting_video_bitrate_title">Bitrate Video</string>
+    <string name="button_video_bitrate_settings">Atur Bitrate</string>
+    <string name="bitrate_mode_default">Default</string>
+    <string name="bitrate_mode_custom">Kustom</string>
+    <string name="bitrate_custom_label">Bitrate Kustom:</string>
+    <string name="bitrate_custom_hint">mis. 16.000</string>
+    <string name="bitrate_reset_button">Reset</string>
+    <string name="bitrate_helper_text">Bitrate mengontrol kualitas video dan ukuran file. Lebih tinggi = kualitas lebih baik, tapi file lebih besar. Terlalu tinggi atau terlalu rendah dapat menyebabkan kesalahan perekaman atau kualitas buruk. Rentang yang direkomendasikan tergantung pada perangkat dan resolusi yang dipilih. Nilai default di atas didasarkan pada pengaturan Anda saat ini.</string>
+    <string name="bitrate_info_default">Default: %d Mbps</string>
+    <string name="bitrate_info_custom">Kustom: %d Mbps</string>
+    <string name="bitrate_info_warning_low">Peringatan: Bitrate sangat rendah. Kualitas video mungkin buruk.</string>
+    <string name="bitrate_info_warning_high">Peringatan: Bitrate sangat tinggi. Perekaman mungkin gagal atau perangkat terlalu panas.</string>
+    <string name="bitrate_info_ok">Bitrate dalam rentang yang direkomendasikan.</string>
+    <string name="bitrate_invalid">Bitrate tidak valid. Masukkan nilai antara %1$d dan %2$d Mbps.</string>
+    <string name="bitrate_save_success">Bitrate berhasil disimpan.</string>
+    <string name="bitrate_reset_success">Bitrate direset ke default.</string>
+    <string name="bitrate_current">Saat ini: %1$s Mbps</string>
+    <string name="bitrate_unit">Mbps</string>
+    <string name="bitrate_explanation">Apa itu bitrate?</string>
+    <string name="bitrate_explanation_text">Bitrate adalah jumlah data yang digunakan per detik video. Bitrate lebih tinggi berarti kualitas lebih baik tapi file lebih besar. Terlalu tinggi atau terlalu rendah dapat menyebabkan masalah. Nilai default didasarkan pada standar kamera profesional.</string>
+    
+    <!-- Video Orientation -->
+    <string name="setting_video_orientation_title">Orientasi Video</string>
+    <string name="setting_video_orientation_summary">Pilih orientasi untuk video Anda. Potret terbaik untuk media sosial; Lanskap terbaik untuk YouTube, presentasi, dll.</string>
+    <string name="video_orientation_portrait">Potret (default)</string>
+    <string name="video_orientation_landscape">Lanskap</string>
+    
+    <!-- Video Splitting -->
+    <string name="video_split_size_summary_mb">Saat ini: %1$d MB</string>
+    <string name="video_split_size_summary_gb">Saat ini: %1$s GB</string>
+    <string name="video_splitting_title">Aktifkan Pemisahan Video</string>
+    <string name="video_splitting_description">Secara otomatis memisahkan rekaman menjadi file yang lebih kecil (Dinonaktifkan secara default). Direkomendasikan: 2 GB untuk keseimbangan. Tersedia preset hingga 4 GB dan ukuran kustom. Ini membantu mengelola rekaman besar dan menghindari batasan ukuran file perangkat.</string>
+    
+    <!-- Location Settings -->
+    <string name="setting_location_embed_title">Sematkan Lokasi dalam Video</string>
+    <string name="note_location_embed">Tambahkan koordinat GPS ke metadata video (geotag). \nMemerlukan GPS diaktifkan \n(Default: Dinonaktifkan)</string>
+    <string name="note_location_embed_extra">Menambahkan data lokasi langsung ke file video, yang dapat digunakan oleh aplikasi galeri/peta untuk menampilkan di mana video diambil.</string>
+    <string name="location_embedding_enabled">Penyematan lokasi diaktifkan</string>
+    <string name="location_permission_granted_manual_toggle">Izin diberikan! Anda sekarang dapat mengaktifkan fitur lokasi di pengaturan.</string>
+    <string name="allow_location_access">Berikan Izin</string>
+    <string name="location_permission_message">Izin lokasi diperlukan untuk menambahkan koordinat GPS ke video Anda. Berikan izin untuk menggunakan fitur ini.</string>
+    
+    <!-- Audio Settings -->
+    <string name="setting_audio_title">Perekaman Audio</string>
+    <string name="note_audio">Aktifkan atau nonaktifkan perekaman audio untuk video.\n(Default: Diaktifkan)</string>
+    <string name="button_audio_settings">Pengaturan Audio</string>
+    <string name="dialog_audio_settings_title">Pengaturan Audio</string>
+    <string name="dialog_audio_bitrate_label">Bitrate Audio (bps)</string>
+    <string name="dialog_audio_sampling_rate_label">Sample Rate (Hz)</string>
+    <string name="dialog_audio_reset">Reset ke Default</string>
+    <string name="dialog_audio_save">Simpan</string>
+    <string name="dialog_audio_cancel">Batal</string>
+    <string name="dialog_audio_invalid_bitrate">Bitrate tidak valid. Masukkan nilai antara 64000 dan 384000.</string>
+    <string name="dialog_audio_invalid_sampling_rate">Sample rate tidak valid. Masukkan 44100 atau 48000.</string>
+    <string name="dialog_audio_settings_summary">Konfigurasikan bitrate audio dan sample rate untuk kualitas terbaik. Default: 192000 bps, 48000 Hz, Stereo.</string>
+    <string name="dialog_audio_info_text">• Bitrate (bps) mengontrol kualitas audio dan ukuran file. Nilai lebih tinggi berarti kualitas lebih baik tapi file lebih besar. 192000 adalah nilai default yang baik untuk kebanyakan penggunaan.
+• Sample Rate (Hz) adalah berapa kali per detik audio direkam. 48000 Hz adalah standar untuk video, 44100 Hz umum untuk audio.
+
+Direkomendasikan: 192000 bps, 48000 Hz untuk kebanyakan pengguna.</string>
+    <string name="setting_audio_input_source_title">Sumber Input Audio</string>
+    <string name="setting_audio_input_source_status_default">Saat ini menggunakan: Mikrofon Ponsel</string>
+    <string name="setting_audio_input_source_status_wired">Saat ini menggunakan: Mikrofon Berkabel</string>
+    <string name="setting_audio_input_source_status_nowired">Tidak ada mikrofon berkabel terdeteksi</string>
+    <string name="audio_input_source_phone">Mikrofon Ponsel (Default)</string>
+    <string name="audio_input_source_wired">Mikrofon Berkabel (jika terhubung)</string>
+    <string name="audio_input_source_wired_not_available">Mikrofon Berkabel (tidak terdeteksi)</string>
+    <string name="audio_input_source_note">Pilih mikrofon mana yang akan digunakan untuk perekaman audio. Jika mikrofon berkabel tidak terhubung, mikrofon ponsel akan digunakan secara otomatis.</string>
+    <string name="audio_input_source_wired_not_connected">Tidak ada mikrofon berkabel terdeteksi. Menggunakan mikrofon ponsel.</string>
+    <string name="audio_input_source_headphones_no_mic">Headphone terdeteksi (tanpa mikrofon)</string>
+    <string name="choose">Pilih</string>
+    
+    <!-- Debug Settings -->
+    <string name="setting_debug_title">Pencatatan Debug</string>
+    <string name="note_debug">Aktifkan pembuatan file log debug \n(Default: Dinonaktifkan)</string>
+    <string name="note_debug_extra">Saat diaktifkan, file log debug akan dibuat di folder Downloads/FadCam. Ini dapat membantu mendiagnosis masalah aplikasi.</string>
+    
+    <!-- Onboarding Settings -->
+    <string name="setting_onboarding_title">Tampilkan Pengenalan pada Peluncuran Berikutnya</string>
+    <string name="note_onboarding">Aktifkan untuk melihat pengenalan aplikasi dan panduan izin saat berikutnya Anda membuka FadCam.</string>
+    
+    <!-- Auto Update Settings -->
+    <string name="setting_auto_update_check_title">Periksa Pembaruan Otomatis saat Startup</string>
+    <string name="note_auto_update_check">Jika diaktifkan, FadCam akan memeriksa pembaruan setiap kali Anda membuka aplikasi. Matikan untuk menonaktifkan pemeriksaan pembaruan otomatis saat peluncuran.\n(Default: Aktif)</string>
+    
+    <!-- Storage Location Settings -->
+    <string name="storage_location_title">Lokasi Penyimpanan</string>
+    <string name="storage_location_description">Pilih tempat rekaman disimpan.</string>
+    <string name="storage_location_internal">Penyimpanan Aplikasi Internal (Default, Pribadi)</string>
+    <string name="storage_location_custom">Lokasi Kustom (Kartu SD/Lainnya, Terlihat di Galeri)</string>
+    <string name="storage_location_choose_folder">Pilih Folder</string>
+    <string name="storage_location_note">Catatan: Menggunakan lokasi kustom membuat video dapat diakses oleh aplikasi lain (misal, Galeri). Penyimpanan internal menjaga video tetap pribadi untuk FadCam.</string>
+    <string name="storage_icon_description">Ikon Penyimpanan</string>
+    <string name="location_icon_description">Ikon Lokasi</string>
+    <string name="location_embedding_icon_description">Ikon Penyematan Lokasi</string>
+    
+    <!-- Camera Messages -->
+    <string name="camera_resources_cooldown">Harap tunggu sebentar sebelum memulai perekaman baru</string>
+
+    <!-- Onboarding Strings -->
+    <string name="onboarding_swipe_instruction">Geser ke kanan untuk melanjutkan</string>
+    <string name="onboarding_select_language">Pilih bahasa aplikasi yang Anda inginkan.</string>
+    <string name="onboarding_camera">Kamera</string>
+    <string name="onboarding_microphone">Mikrofon</string>
+    <string name="onboarding_storage">Penyimpanan</string>
+    <string name="onboarding_or">ATAU</string>
+    <string name="onboarding_and">DAN</string>
+    <string name="onboarding_open_settings">Buka Pengaturan</string>
+    <string name="onboarding_intro_line1">Open source,</string>
+    <string name="onboarding_intro_line2">tanpa iklan,</string>
+    <string name="onboarding_intro_line3">dan dibuat untuk Anda—bukan untuk pengiklan.</string>
+
+    <string name="language_change_later_note">Anda dapat mengubahnya nanti di Pengaturan.</string>
+    
+    <string name="permissions_required">Izin Diperlukan</string>
+    <string name="permissions_description">FadCam memerlukan akses ke kamera, mikrofon, dan penyimpanan Anda untuk merekam dan menyimpan video.</string>
+    <string name="grant_permissions">Berikan Izin</string>
+    <string name="permissions_note">Anda harus memberikan semua izin untuk melanjutkan.</string>
+    <string name="permissions_granted">Semua izin diberikan!</string>
+
+    <string name="open_settings">Buka Pengaturan</string>
+
+    <string name="disable_battery_optimization">Nonaktifkan Optimisasi Baterai</string>
+
+    <string name="onboarding_human_title">Verifikasi jika Anda manusia</string>
+    <string name="onboarding_human_desc">Hmmmm... baiklah. Aturan ini tidak bisa ditawar. Jika Anda tidak bisa menyetujui, silakan copot FadCam sekarang.</string>
+    <string name="onboarding_human_checkbox1">Saya tidak akan menggunakan FadCam untuk melanggar hukum, menginvasi privasi siapapun, atau menjadi orang mencurigakan. Pengembang tidak bertanggung jawab jika saya melakukan kesalahan. (Itu tanggung jawab saya.)</string>
+    <string name="onboarding_human_checkbox2">Saya sudah mencintai FadCam bahkan sebelum menggunakannya. (Tidak opsional)</string>
+    <string name="onboarding_human_button">Biarkan saya masuk!</string>
+
+    <!-- Records Options and Empty State Strings -->
+    <string name="sort_by">Urutkan Berdasarkan</string>
+    <string name="sort_latest_first">Terbaru Dahulu</string>
+    <string name="sort_oldest_first">Terlama Dahulu</string>
+    <string name="sort_smallest_first">File Terkecil Dahulu</string>
+    <string name="sort_largest_first">File Terbesar Dahulu</string>
+    <string name="no_videos_found">Tidak ada video ditemukan</string>
+    <string name="no_recordings_yet">Belum Ada Rekaman</string>
+    
+    <!-- Remote Tab Strings -->
+    <string name="remote_access_title">Akses/Kontrol Jarak Jauh</string>
+    <string name="remote_toast_coming_soon">Segera hadir! In Sha Allah</string>
+    <string name="remote_coming_soon">Kontrol jarak jauh untuk FadCam akan segera hadir.</string>
+    <string name="remote_feature_description">Pasangkan klien FadCam menggunakan kode QR untuk kontrol jarak jauh yang aman melalui jaringan lokal: mulai/hentikan perekaman, pratinjau, zoom, beralih kamera, dan lainnya—semua dengan enkripsi end-to-end.</string>
+
+    <string name="app_icon_minimal" translatable="false">Minimal</string>
+
+    <!-- Strings for TrashFragment -->
+    <string name="trash_auto_deleted_toast">%1$d item lama dihapus secara otomatis.</string>
+    <string name="trash_empty_toast_message">Tidak ada item untuk dihapus.</string>
+    <string name="trash_emptied_toast">Semua item telah dihapus.</string>
+    <string name="trash_items_deleted_toast">%1$d item dihapus secara permanen.</string>
+    <string name="trash_error_deleting_items_toast">Kesalahan menghapus item.</string>
+    <string name="trash_dialog_empty_all_title">Hapus Semua Item?</string>
+    <string name="trash_button_empty_all_action">Hapus Semua</string>
+
+    <!-- For TrashFragment Dialogs -->
+    <string name="dialog_permanently_delete_title">Hapus Secara Permanen?</string>
+    <string name="dialog_permanently_delete_message">Anda yakin ingin menghapus %1$d item yang dipilih secara permanen? Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="dialog_empty_all_trash_message">Anda yakin ingin menghapus semua item secara permanen? Tindakan ini tidak dapat dibatalkan.</string>
+
+    <!-- For TrashFragment - Restore Action -->
+    <string name="trash_no_items_selected_toast">Tidak ada item yang dipilih.</string>
+    <string name="trash_dialog_restore_title">Kembalikan yang Dipilih?</string>
+    <string name="trash_dialog_restore_message">Kembalikan %1$d item ke folder publik Downloads/FadCam/?</string>
+    <string name="trash_restore_success_toast">%1$d item berhasil dikembalikan.</string>
+    <string name="trash_restore_fail_toast">Kesalahan mengembalikan item. Beberapa file mungkin tidak berhasil dikembalikan atau galeri mungkin tidak diperbarui. Periksa izin penyimpanan aplikasi.</string>
+    <string name="trash_restore_cancelled_toast">Pengembalian dibatalkan.</string>
+    <string name="trash_fragment_title_text">Baru Saja Dihapus</string>
+    <string name="universal_restore">Kembalikan</string>
+    <string name="deleted_item_thumbnail_description">Thumbnail item yang dihapus</string>
+    <string name="trash_empty_icon_description">Ikon tempat sampah kosong</string>
+    <string name="trash_empty_text">Tempat sampah kosong.</string>
+
+    <!-- Strings for Trash Auto-Delete Feature -->
+    <plurals name="trash_auto_delete_info_days">
+        <item quantity="other">Item akan dihapus secara otomatis setelah %1$d hari.</item>
+    </plurals>
+    <plurals name="trash_auto_delete_info_hours">
+        <item quantity="other">Item akan dihapus secara otomatis setelah %1$d jam.</item>
+    </plurals>
+    <string name="trash_auto_delete_info_manual">Item di tempat sampah tidak pernah dihapus secara otomatis, hapus video secara manual.</string>
+    <plurals name="trash_item_remaining_days">
+        <item quantity="other">%1$d hari tersisa</item>
+    </plurals>
+    <plurals name="trash_item_remaining_hours">
+        <item quantity="other">%1$d jam tersisa</item>
+    </plurals>
+    <string name="trash_item_remaining_soon">Akan dihapus segera</string>
+    <string name="trash_menu_auto_delete_settings">Pengaturan Hapus Otomatis</string>
+    <string name="auto_delete_dialog_title">Atur Durasi Hapus Otomatis</string>
+    <string name="auto_delete_1_hour">Setelah 1 Jam</string>
+    <string name="auto_delete_5_hours">Setelah 5 Jam</string>
+    <string name="auto_delete_10_hours">Setelah 10 Jam</string>
+    <string name="auto_delete_1_day">Setelah 1 Hari</string>
+    <string name="auto_delete_7_days">Setelah 7 Hari</string>
+    <string name="auto_delete_30_days">Setelah 30 Hari (Default)</string>
+    <string name="auto_delete_60_days">Setelah 60 Hari</string>
+    <string name="auto_delete_90_days">Setelah 90 Hari</string>
+    <string name="auto_delete_never">Tidak Pernah (Hapus Manual)</string>
+    <string name="auto_delete_save_setting">Simpan</string>
+    
+    <string name="trash_select_all">Pilih Semua</string>
+</resources>
