@@ -10,6 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:alpha="0.18"
+        android:visibility="gone"
         android:translationZ="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +38,7 @@
             android:text="@string/records_options_title"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#E43C3C"
+            android:textColor="#fff"
             android:gravity="center" />
 
         <View

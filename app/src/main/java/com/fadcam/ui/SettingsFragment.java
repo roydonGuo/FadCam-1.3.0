@@ -794,7 +794,7 @@ public class SettingsFragment extends BaseFragment {
         String customUriString = sharedPreferencesManager.getCustomStorageUri();
         boolean isInCustomMode = SharedPreferencesManager.STORAGE_MODE_CUSTOM.equals(currentMode) && customUriString != null;
 
-        Log.d(TAG_SETTINGS, "Updating UI - Mode: " + currentMode + ", URI set: " + (customUriString != null));
+        Log.d(TAG_SETTINGS, "Updating UI - Mode: " + currentMode + ", URI set: " + customUriString);
 
         // ----- Fix Start: Set radio button text color for Faded Night theme -----
         String currentTheme = sharedPreferencesManager.sharedPreferences.getString(Constants.PREF_APP_THEME, Constants.DEFAULT_APP_THEME);
@@ -869,7 +869,7 @@ public class SettingsFragment extends BaseFragment {
                 if (name == null && path != null && path.contains(":") && path.startsWith("/tree/")) {
                     return "SD Card / Ext. Storage";
                 } else if (name != null) {
-                    return "Folder: " + name;
+                    return "文件夹：" + name;
                 } else {
                     // Fallback if name is null but readable
                     return "Selected Folder";

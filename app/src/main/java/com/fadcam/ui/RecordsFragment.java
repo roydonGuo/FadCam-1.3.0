@@ -2146,7 +2146,7 @@ public class RecordsFragment extends BaseFragment implements
         // Only change if the desired state is different or no layout manager set yet
         if (isGridView != currentlyGrid || recyclerView.getLayoutManager() == null) {
             RecyclerView.LayoutManager layoutManager = isGridView ?
-                    new GridLayoutManager(getContext(), 2) : // 2 columns for grid
+                    new GridLayoutManager(getContext(), 5) : // 2 columns for grid
                     new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(layoutManager);
             Log.d(TAG, "LayoutManager set to: " + (isGridView ? "GridLayout" : "LinearLayout"));

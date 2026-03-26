@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">录像机</string>
     <string name="app_icon_description">为您的应用选择图标和名称。这将更改其在主屏幕上的显示方式。</string>
     <string name="check_for_updates">检查更新</string>
     <string name="fadsec_info">FadCam是FadSec实验室套件的一部分。欲了解更多详情，请点击下方"查看源码"按钮</string>
@@ -47,6 +48,12 @@
     <string name="button_start">开始录制</string>
     <string name="button_pause">暂停</string>
     <string name="button_stop">停止</string>
+    <string name="button_resume">继续</string>
+    <string name="video_recording_started">录制开始</string>
+    <string name="video_recording_stopped">录制停止</string>
+    <string name="video_recording_paused">录制暂停</string>
+    <string name="video_recording_resumed">录制继续</string>
+    <string name="front">前置</string>
     <string name="video_menu_del">删除</string>
     <string name="video_menu_save">保存至图库</string>
     <string name="video_menu_rename">重命名</string>
@@ -64,7 +71,7 @@
     <string name="button_settings_cam_front">前摄</string>
     <string name="note_quailty">选择视频质量\n(默认: HD)</string>
     <string name="setting_watermark">水印</string>
-    <string name="note_watermark">调整视频水印\n(默认: 时间与\"Fadcam\"字样)</string>
+    <string name="note_watermark">调整视频水印\n(默认: 时间)</string>
     <string name="note_watermark_extra">想让视频保存速度更快？选择\"无水印\". 想加水印？那么片刻的等待是值得的, 就只需要多等一小会!</string>
     <string name="note_location">向水印添加位置信息. \n需要打开手机的位置信息功能 \n(默认: 关闭)</string>
     <string name="note_location_extra">添加经纬度信息至视频水印需要打开手机的位置信息功能</string>
@@ -138,7 +145,7 @@
     <string name="thankyou_msg">感谢你使用FadCam!</string>
     <string name="settings_title">设置</string>
     <string name="array_watermark_time_fadcam">时间与\"Fadcam\"字样</string>
-    <string name="array_watermark_timeonly">仅时间</string>
+    <string name="array_watermark_timeonly">时间</string>
     <string name="array_watermark_nomark">无水印</string>
     <string name="toast_video_not_found">出错：视频未找到</string>
     <string name="toast_video_saved">视频已保存至Download目录的FadCam文件夹中</string>
@@ -156,7 +163,7 @@
     <string name="dialog_multi_video_del_yes">是的，发动魔法卡！🌋</string>
     <string name="dialog_multi_video_del_no">不了，留着 😅</string>
     <string name="setting_language_title">应用程序语言</string>
-    <string name="note_language">从下拉列表中选择。\n（默认：英语）</string>
+    <string name="note_language">从下拉列表中选择。</string>
     <string name="location_permission_title">位置权限</string>
     <string name="location_permission_description">此应用程序需要位置权限才能将位置数据添加到视频中。请授予权限。</string>
     <string name="up_to_date">最新的</string>
@@ -301,7 +308,7 @@
     <string name="storage_location_title">存储位置</string>
     <string name="storage_location_description">选择保存录像的位置。</string>
     <string name="storage_location_internal">内部应用存储（默认，私有）</string>
-    <string name="storage_location_custom">自定义位置（SD卡/其他，相册可见）</string>
+    <string name="storage_location_custom">自定义位置（U盘/SD卡/其他，相册可见）</string>
     <string name="storage_location_choose_folder">选择文件夹</string>
     <string name="storage_location_note">注意：使用自定义位置会使视频可被其他应用访问（例如，相册）。内部存储使视频对FadCam保持私有。</string>
     <string name="storage_icon_description">存储图标</string>
@@ -427,4 +434,11 @@
     <string name="auto_delete_save_setting">保存</string>
     
     <string name="trash_select_all">全选</string>
+    <string name="video_menu_copy_filename">复制文件名</string>
+    <string name="current_camera">当前相机</string>
+    <string name="back">后置</string>
+    <string name="preview_enabled">预览开启</string>
+    <string name="switched_front_camera">切换到前置摄像头</string>
+    <string name="switched_rear_camera">切换到后置摄像头</string>
+    <string name="notification_video_recording">视频录制</string>
 </resources>

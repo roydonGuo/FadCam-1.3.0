@@ -178,7 +178,7 @@ public class OnboardingActivity extends AppIntro {
                 final TextView swipeInstruction = v.findViewById(R.id.tvSwipeInstruction);
                 if (imageView != null && descView != null) {
                     imageView.setAlpha(0f);
-                    imageView.setVisibility(View.VISIBLE);
+                    imageView.setVisibility(View.GONE);
                     // ----- Fix Start for onboarding intro step-by-step animation flow -----
                     imageView.animate().alpha(1f).setDuration(1200).withEndAction(() -> {
                         // Only start text animation after image fade-in completes

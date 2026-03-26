@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name" translatable="false">FadCam</string>
+    <string name="app_name">FadCam</string>
     <string name="app_icon_description">Choose an icon and name for your app. This will change how it appears on your home screen.</string>
     <string name="check_for_updates">Check for Updates</string>
     <string name="fadsec_info">FadCam is part of the FadSec Lab suite. For more information, click on \'view source code\' below.</string>
@@ -215,7 +215,7 @@
     <string name="dialog_multi_video_del_yes">Yes, Nuke \'Em! </string>
     <string name="dialog_multi_video_del_no">No, Keep \'Em! </string>
     <string name="setting_language_title">App\'s Language</string>
-    <string name="note_language">Select from dropdown.\n(Default: English)</string>
+    <string name="note_language">Select from dropdown.</string>
     <string name="location_permission_title">Location Permission</string>
     <string name="location_permission_description">This app needs location permission to add location data to videos. Please grant the permission.</string>
     <string name="location_permission_denied">Location permission denied. Location features will be disabled.</string>

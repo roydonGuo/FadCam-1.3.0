@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     // ----- Fix End: Add fields for double-back to exit -----
 
     // ----- Fix Start: Add method to disable back toast temporarily -----
+
     /**
      * Public method to be called from fragments that need to disable the double-back toast temporarily
      * This will prevent the "Press back again to exit" toast from showing on the next back press
@@ -71,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
     // ----- Fix End: Add method to disable back toast temporarily -----
 
     // ----- Fix Start: Add method to check if trash fragment is visible -----
+
     /**
      * Checks if the TrashFragment is currently visible in the overlay container
+     *
      * @return true if TrashFragment is visible, false otherwise
      */
     private boolean isTrashFragmentVisible() {
@@ -90,30 +93,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Apply theme before setContentView
         applyTheme();
-        
+
         super.onCreate(savedInstanceState);
 
         // ----- Fix Start: Ensure onboarding shows on first install -----
         // Initialize SharedPreferencesManager instance first
         this.sharedPreferencesManager = SharedPreferencesManager.getInstance(this);
-        
+
         // Check if this is a first launch by looking for a special flag
         boolean firstInstallChecked = sharedPreferencesManager.sharedPreferences.getBoolean(Constants.FIRST_INSTALL_CHECKED_KEY, false);
-        
+
         if (!firstInstallChecked) {
             // This is definitely a first install or app data was cleared
             // Force onboarding to show by setting the flag to false
             android.util.Log.d("MainActivity", "First install detected! Forcing onboarding to show.");
             sharedPreferencesManager.sharedPreferences.edit()
-                .putBoolean(Constants.COMPLETED_ONBOARDING_KEY, false)
-                .putBoolean(Constants.FIRST_INSTALL_CHECKED_KEY, true)
-                .commit(); // Use commit() for immediate effect
+                    .putBoolean(Constants.COMPLETED_ONBOARDING_KEY, false)
+                    .putBoolean(Constants.FIRST_INSTALL_CHECKED_KEY, true)
+                    .commit(); // Use commit() for immediate effect
         }
-        
+
         // Check for onboarding BEFORE applying theme or language
         boolean showOnboarding = sharedPreferencesManager.isShowOnboarding();
         android.util.Log.d("MainActivity", "Should show onboarding: " + showOnboarding);
-        
+
         if (showOnboarding) {
             // Launch onboarding activity if needed
             Intent intent = new Intent(this, com.fadcam.ui.OnboardingActivity.class);
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         // ----- Fix End: Ensure onboarding shows on first install -----
-        
+
         // Now that we know we're not showing onboarding, continue with normal initialization
 
         // Load and apply the saved language preference before anything else
@@ -143,13 +146,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         viewPager = findViewById(R.id.view_pager);
+        viewPager.setUserInputEnabled(false); // 禁用滑动
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
 
         // Apply the fade animation transformer with more conservative settings
-        viewPager.setPageTransformer(new FadePageTransformer());
+//        viewPager.setPageTransformer(new FadePageTransformer());
 
         // Keep all pages in memory to prevent content disappearing
         viewPager.setOffscreenPageLimit(adapter.getItemCount());
@@ -157,15 +161,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.navigation_home) {
-                viewPager.setCurrentItem(0, true);
+                viewPager.setCurrentItem(0, false);
             } else if (itemId == R.id.navigation_records) {
-                viewPager.setCurrentItem(1, true);
-            } else if (itemId == R.id.navigation_remote) {
-                viewPager.setCurrentItem(2, true);
+                viewPager.setCurrentItem(1, false);
             } else if (itemId == R.id.navigation_settings) {
-                viewPager.setCurrentItem(3, true);
-            } else if (itemId == R.id.navigation_about) {
-                viewPager.setCurrentItem(4, true);
+                viewPager.setCurrentItem(3, false);
             }
             return true;
         });
@@ -181,33 +181,27 @@ public class MainActivity extends AppCompatActivity {
                         bottomNavigationView.setSelectedItemId(R.id.navigation_records);
                         break;
                     case 2:
-                        bottomNavigationView.setSelectedItemId(R.id.navigation_remote);
-                        break;
-                    case 3:
                         bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
-                        break;
-                    case 4:
-                        bottomNavigationView.setSelectedItemId(R.id.navigation_about);
                         break;
                 }
             }
         });
 
         // Add custom badge to the Remote tab in BottomNavigationView
-        bottomNavigationView.post(() -> {
-            ViewGroup menuView = (ViewGroup) bottomNavigationView.getChildAt(0);
-            if (menuView != null && menuView.getChildCount() > 2) {
-                View remoteTab = menuView.getChildAt(2); // 0:home, 1:records, 2:remote
-                if (remoteTab instanceof ViewGroup) {
-                    // Prevent duplicate badge
-                    View existingBadge = ((ViewGroup) remoteTab).findViewById(R.id.badge_text);
-                    if (existingBadge == null) {
-                        View badge = getLayoutInflater().inflate(R.layout.custom_badge, (ViewGroup) remoteTab, false);
-                        ((ViewGroup) remoteTab).addView(badge);
-                    }
-                }
-            }
-        });
+//        bottomNavigationView.post(() -> {
+//            ViewGroup menuView = (ViewGroup) bottomNavigationView.getChildAt(0);
+//            if (menuView != null && menuView.getChildCount() > 2) {
+//                View remoteTab = menuView.getChildAt(2); // 0:home, 1:records, 2:remote
+//                if (remoteTab instanceof ViewGroup) {
+//                    // Prevent duplicate badge
+//                    View existingBadge = ((ViewGroup) remoteTab).findViewById(R.id.badge_text);
+//                    if (existingBadge == null) {
+//                        View badge = getLayoutInflater().inflate(R.layout.custom_badge, (ViewGroup) remoteTab, false);
+//                        ((ViewGroup) remoteTab).addView(badge);
+//                    }
+//                }
+//            }
+//        });
 
         // This is the path for the osmdroid tile cache
         File osmdroidBasePath = new File(getCacheDir().getAbsolutePath(), "osmdroid");
@@ -244,39 +238,39 @@ public class MainActivity extends AppCompatActivity {
         torchIntent.setAction(Intent.ACTION_VIEW);
 
         ShortcutInfo torchShortcut = new ShortcutInfo.Builder(this, "torch_toggle")
-            .setShortLabel(getString(R.string.torch_shortcut_short_label))
-            .setLongLabel(getString(R.string.torch_shortcut_long_label))
-            .setIcon(Icon.createWithResource(this, R.drawable.flashlight_shortcut))
-            .setIntent(torchIntent)
-            .build();
+                .setShortLabel(getString(R.string.torch_shortcut_short_label))
+                .setLongLabel(getString(R.string.torch_shortcut_long_label))
+                .setIcon(Icon.createWithResource(this, R.drawable.flashlight_shortcut))
+                .setIntent(torchIntent)
+                .build();
 
         // Recording Start Shortcut
         Intent startRecordIntent = new Intent(this, RecordingStartActivity.class);
         startRecordIntent.setAction(Intent.ACTION_VIEW);
 
         ShortcutInfo startRecordShortcut = new ShortcutInfo.Builder(this, "record_start")
-            .setShortLabel(getString(R.string.start_recording))
-            .setLongLabel(getString(R.string.start_recording))
-            .setIcon(Icon.createWithResource(this, R.drawable.start_shortcut))
-            .setIntent(startRecordIntent)
-            .build();
+                .setShortLabel(getString(R.string.start_recording))
+                .setLongLabel(getString(R.string.start_recording))
+                .setIcon(Icon.createWithResource(this, R.drawable.start_shortcut))
+                .setIntent(startRecordIntent)
+                .build();
 
         // Recording Stop Shortcut
         Intent stopRecordIntent = new Intent(this, RecordingStopActivity.class);
         stopRecordIntent.setAction(Intent.ACTION_VIEW);
 
         ShortcutInfo stopRecordShortcut = new ShortcutInfo.Builder(this, "record_stop")
-            .setShortLabel(getString(R.string.stop_recording))
-            .setLongLabel(getString(R.string.stop_recording))
-            .setIcon(Icon.createWithResource(this, R.drawable.stop_shortcut))
-            .setIntent(stopRecordIntent)
-            .build();
+                .setShortLabel(getString(R.string.stop_recording))
+                .setLongLabel(getString(R.string.stop_recording))
+                .setIcon(Icon.createWithResource(this, R.drawable.stop_shortcut))
+                .setIntent(stopRecordIntent)
+                .build();
 
         // Set all shortcuts
         shortcutManager.setDynamicShortcuts(Arrays.asList(
-            torchShortcut,
-            startRecordShortcut,
-            stopRecordShortcut
+                torchShortcut,
+                startRecordShortcut,
+                stopRecordShortcut
         ));
     }
 
@@ -312,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
     }
-    
+
     // ----- Fix Start: Proper back button handling with double-press to exit -----
     @Override
     public void onBackPressed() {
@@ -322,80 +316,74 @@ public class MainActivity extends AppCompatActivity {
             if (overlayContainer != null) {
                 // Animate fading out
                 overlayContainer.animate()
-                    .alpha(0f)
-                    .setDuration(250)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            // Set visibility to GONE after animation completes
-                            overlayContainer.setVisibility(View.GONE);
-                            overlayContainer.setAlpha(1f); // Reset alpha for next time
-                            
-                            // Pop any fragments in the back stack
-                            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                                getSupportFragmentManager().popBackStack();
+                        .alpha(0f)
+                        .setDuration(250)
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                // Set visibility to GONE after animation completes
+                                overlayContainer.setVisibility(View.GONE);
+                                overlayContainer.setAlpha(1f); // Reset alpha for next time
+
+                                // Pop any fragments in the back stack
+                                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                                    getSupportFragmentManager().popBackStack();
+                                }
+
+                                // Force a complete reset of the ViewPager and its fragments
+                                // Save current position
+                                final int currentPosition = viewPager.getCurrentItem();
+
+                                // Completely recreate the adapter (aggressive approach)
+                                ViewPagerAdapter newAdapter = new ViewPagerAdapter(MainActivity.this);
+                                viewPager.setAdapter(newAdapter);
+
+                                // Reset page transformer to ensure animations work
+                                viewPager.setPageTransformer(new FadePageTransformer());
+
+                                // Restore position without animation
+                                viewPager.setCurrentItem(currentPosition, false);
+
+                                // Also make sure the correct tab is selected
+                                switch (currentPosition) {
+                                    case 0:
+                                        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+                                        break;
+                                    case 1:
+                                        bottomNavigationView.setSelectedItemId(R.id.navigation_records);
+                                        break;
+                                    case 2:
+                                        bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
+                                        break;
+                                }
                             }
-                            
-                            // Force a complete reset of the ViewPager and its fragments
-                            // Save current position
-                            final int currentPosition = viewPager.getCurrentItem();
-                            
-                            // Completely recreate the adapter (aggressive approach)
-                            ViewPagerAdapter newAdapter = new ViewPagerAdapter(MainActivity.this);
-                            viewPager.setAdapter(newAdapter);
-                            
-                            // Reset page transformer to ensure animations work
-                            viewPager.setPageTransformer(new FadePageTransformer());
-                            
-                            // Restore position without animation
-                            viewPager.setCurrentItem(currentPosition, false);
-                            
-                            // Also make sure the correct tab is selected
-                            switch (currentPosition) {
-                                case 0:
-                                    bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-                                    break;
-                                case 1:
-                                    bottomNavigationView.setSelectedItemId(R.id.navigation_records);
-                                    break;
-                                case 2:
-                                    bottomNavigationView.setSelectedItemId(R.id.navigation_remote);
-                                    break;
-                                case 3:
-                                    bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
-                                    break;
-                                case 4:
-                                    bottomNavigationView.setSelectedItemId(R.id.navigation_about);
-                                    break;
-                            }
-                        }
-                    });
+                        });
                 return; // Exit early without showing toast
             }
-            
+
             // If for some reason we couldn't animate, fallback to immediate hide
             if (overlayContainer != null) {
                 overlayContainer.setVisibility(View.GONE);
             }
-            
+
             // Pop any fragments in the back stack
             if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                 getSupportFragmentManager().popBackStack();
             }
-            
+
             // Refresh the records fragment if needed
             Fragment recordsFragment = getSupportFragmentManager()
                     .findFragmentByTag("RecordsFragment");
             if (recordsFragment instanceof RecordsFragment) {
                 ((RecordsFragment) recordsFragment).refreshList();
             }
-            
+
             return; // Exit early without showing toast
         }
 
         // If we're not on the home tab, go to home tab first before exiting
         if (viewPager.getCurrentItem() != 0) {
-            viewPager.setCurrentItem(0, true); // Enable animation
+            viewPager.setCurrentItem(0, false); // Enable animation
         } else {
             // Check if we should skip this back handling
             if (skipNextBackHandling) {
@@ -403,7 +391,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onBackPressed();
                 return;
             }
-            
+
             // We're on the home tab, implement double back press to exit
             if (doubleBackToExitPressedOnce) {
                 // Remove the callback to prevent it from executing after app close
@@ -420,45 +408,45 @@ public class MainActivity extends AppCompatActivity {
             backPressHandler.postDelayed(backPressRunnable, BACK_PRESS_DELAY);
         }
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
-        
+
         // Update UI for current theme
         String currentTheme = SharedPreferencesManager.getInstance(this).sharedPreferences.getString(Constants.PREF_APP_THEME, Constants.DEFAULT_APP_THEME);
-        
+
         // Special handling for Snow Veil theme - set light status bar with dark icons
         if ("Snow Veil".equals(currentTheme) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            
+
             // Also set light navigation bar if API level is high enough
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                        View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
                 );
             }
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // For other themes, use dark status bar with light icons (default)
             getWindow().getDecorView().setSystemUiVisibility(0);
         }
-        
+
         // Restore language settings
         this.sharedPreferencesManager = SharedPreferencesManager.getInstance(this);
         String savedLanguageCode = sharedPreferencesManager.sharedPreferences.getString(Constants.LANGUAGE_KEY, Locale.getDefault().getLanguage());
         applyLanguage(savedLanguageCode);
-        
+
         // Create shortcuts if needed (Android 7.1+)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
             createDynamicShortcuts();
         }
-        
+
         // Handle any pending intents
         Intent intent = getIntent();
         if (intent != null && Constants.ACTION_SHOW_RECORDS.equals(intent.getAction())) {
             viewPager.setCurrentItem(1, false); // Navigate to Records tab
         }
-        
+
         // Set up the back press behavior with the newer API
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
@@ -470,61 +458,55 @@ public class MainActivity extends AppCompatActivity {
                         if (overlayContainer != null) {
                             // Animate fading out
                             overlayContainer.animate()
-                                .alpha(0f)
-                                .setDuration(250)
-                                .setListener(new AnimatorListenerAdapter() {
-                                    @Override
-                                    public void onAnimationEnd(Animator animation) {
-                                        // Set visibility to GONE after animation completes
-                                        overlayContainer.setVisibility(View.GONE);
-                                        overlayContainer.setAlpha(1f); // Reset alpha for next time
-                                        
-                                        // Pop any fragments in the back stack
-                                        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                                            getSupportFragmentManager().popBackStack();
+                                    .alpha(0f)
+                                    .setDuration(250)
+                                    .setListener(new AnimatorListenerAdapter() {
+                                        @Override
+                                        public void onAnimationEnd(Animator animation) {
+                                            // Set visibility to GONE after animation completes
+                                            overlayContainer.setVisibility(View.GONE);
+                                            overlayContainer.setAlpha(1f); // Reset alpha for next time
+
+                                            // Pop any fragments in the back stack
+                                            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                                                getSupportFragmentManager().popBackStack();
+                                            }
+
+                                            // Force a complete reset of the ViewPager and its fragments
+                                            // Save current position
+                                            final int currentPosition = viewPager.getCurrentItem();
+
+                                            // Completely recreate the adapter (aggressive approach)
+                                            ViewPagerAdapter newAdapter = new ViewPagerAdapter(MainActivity.this);
+                                            viewPager.setAdapter(newAdapter);
+
+                                            // Reset page transformer to ensure animations work
+//                                            viewPager.setPageTransformer(new FadePageTransformer());
+
+                                            // Restore position without animation
+                                            viewPager.setCurrentItem(currentPosition, false);
+
+                                            // Also make sure the correct tab is selected
+                                            switch (currentPosition) {
+                                                case 0:
+                                                    bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+                                                    break;
+                                                case 1:
+                                                    bottomNavigationView.setSelectedItemId(R.id.navigation_records);
+                                                    break;
+                                                case 2:
+                                                    bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
+                                                    break;
+                                            }
                                         }
-                                        
-                                        // Force a complete reset of the ViewPager and its fragments
-                                        // Save current position
-                                        final int currentPosition = viewPager.getCurrentItem();
-                                        
-                                        // Completely recreate the adapter (aggressive approach)
-                                        ViewPagerAdapter newAdapter = new ViewPagerAdapter(MainActivity.this);
-                                        viewPager.setAdapter(newAdapter);
-                                        
-                                        // Reset page transformer to ensure animations work
-                                        viewPager.setPageTransformer(new FadePageTransformer());
-                                        
-                                        // Restore position without animation
-                                        viewPager.setCurrentItem(currentPosition, false);
-                                        
-                                        // Also make sure the correct tab is selected
-                                        switch (currentPosition) {
-                                            case 0:
-                                                bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-                                                break;
-                                            case 1:
-                                                bottomNavigationView.setSelectedItemId(R.id.navigation_records);
-                                                break;
-                                            case 2:
-                                                bottomNavigationView.setSelectedItemId(R.id.navigation_remote);
-                                                break;
-                                            case 3:
-                                                bottomNavigationView.setSelectedItemId(R.id.navigation_settings);
-                                                break;
-                                            case 4:
-                                                bottomNavigationView.setSelectedItemId(R.id.navigation_about);
-                                                break;
-                                        }
-                                    }
-                                });
+                                    });
                             return; // Exit early without showing toast
                         }
                     }
-                    
+
                     // If we're not on the home tab, go to home tab first before exiting
                     if (viewPager.getCurrentItem() != 0) {
-                        viewPager.setCurrentItem(0, true); // Enable animation
+                        viewPager.setCurrentItem(0, false); // Enable animation
                     } else {
                         // Check if we should skip this back handling
                         if (skipNextBackHandling) {
@@ -533,7 +515,7 @@ public class MainActivity extends AppCompatActivity {
                             getOnBackPressedDispatcher().onBackPressed();
                             return;
                         }
-                        
+
                         // We're on the home tab, implement double back press to exit
                         if (doubleBackToExitPressedOnce) {
                             // Remove the callback to prevent it from executing after app close
@@ -583,21 +565,21 @@ public class MainActivity extends AppCompatActivity {
         if (themeName == null) {
             themeName = Constants.DEFAULT_APP_THEME;
         }
-        
+
         // Apply the appropriate theme based on name
         if ("Faded Night".equals(themeName) ||
-            "AMOLED".equals(themeName) ||
-            "Amoled".equals(themeName) || 
-            "amoled".equals(themeName)) {
+                "AMOLED".equals(themeName) ||
+                "Amoled".equals(themeName) ||
+                "amoled".equals(themeName)) {
             setTheme(R.style.Theme_FadCam_Amoled);
-            
+
             // Standardize theme name to "Faded Night"
             if (!"Faded Night".equals(themeName)) {
                 sharedPreferencesManager.sharedPreferences.edit()
-                    .putString(Constants.PREF_APP_THEME, "Faded Night")
-                    .apply();
+                        .putString(Constants.PREF_APP_THEME, "Faded Night")
+                        .apply();
             }
-            
+
             getWindow().setNavigationBarColor(getResources().getColor(R.color.amoled_background, getTheme()));
         } else if ("Crimson Bloom".equals(themeName)) {
             // Red theme
@@ -623,7 +605,7 @@ public class MainActivity extends AppCompatActivity {
             // Snow Veil theme
             setTheme(R.style.Theme_FadCam_SnowVeil);
             getWindow().setNavigationBarColor(getResources().getColor(R.color.snowveil_theme_background_light, getTheme()));
-            
+
             // Set status bar icons to dark for light theme
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         } else if ("Midnight Dusk".equals(themeName)) {
@@ -652,41 +634,52 @@ public class MainActivity extends AppCompatActivity {
         // Get shared preferences and current theme
         SharedPreferencesManager sharedPreferencesManager = SharedPreferencesManager.getInstance(this);
         String themeName = sharedPreferencesManager.sharedPreferences.getString(Constants.PREF_APP_THEME, Constants.DEFAULT_APP_THEME);
-        
+
         // Ensure we have a valid theme name, default to Crimson Bloom if null or empty
         if (themeName == null || themeName.isEmpty()) {
             themeName = Constants.DEFAULT_APP_THEME;
             sharedPreferencesManager.sharedPreferences.edit()
-                .putString(Constants.PREF_APP_THEME, Constants.DEFAULT_APP_THEME)
-                .apply();
+                    .putString(Constants.PREF_APP_THEME, Constants.DEFAULT_APP_THEME)
+                    .apply();
         }
-        
+
         // Apply appropriate theme based on name
-        if ("Crimson Bloom".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_Red);
-        } else if ("Faded Night".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_Amoled);
-        } else if ("Midnight Dusk".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_MidnightDusk); // Always use the custom always-dark theme
-        } else if ("Premium Gold".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_Gold);
-        } else if ("Silent Forest".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_SilentForest);
-        } else if ("Shadow Alloy".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_ShadowAlloy);
-        } else if ("Pookie Pink".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_PookiePink);
-        } else if ("Snow Veil".equals(themeName)) {
-            setTheme(R.style.Theme_FadCam_SnowVeil);
-        } else {
-            // Default to Crimson Bloom for any unknown values
-            setTheme(R.style.Theme_FadCam_Red);
-            // Save the corrected theme value
-            sharedPreferencesManager.sharedPreferences.edit()
-                .putString(Constants.PREF_APP_THEME, "Crimson Bloom")
-                .apply();
+        switch (themeName) {
+            case "Crimson Bloom":
+                setTheme(R.style.Theme_FadCam_Red);
+                break;
+            case "Faded Night":
+                setTheme(R.style.Theme_FadCam_Amoled);
+                break;
+            case "Midnight Dusk":
+                setTheme(R.style.Theme_FadCam_MidnightDusk); // Always use the custom always-dark theme
+
+                break;
+            case "Premium Gold":
+                setTheme(R.style.Theme_FadCam_Gold);
+                break;
+            case "Silent Forest":
+                setTheme(R.style.Theme_FadCam_SilentForest);
+                break;
+            case "Shadow Alloy":
+                setTheme(R.style.Theme_FadCam_ShadowAlloy);
+                break;
+            case "Pookie Pink":
+                setTheme(R.style.Theme_FadCam_PookiePink);
+                break;
+            case "Snow Veil":
+                setTheme(R.style.Theme_FadCam_SnowVeil);
+                break;
+            default:
+                // Default to Crimson Bloom for any unknown values
+                setTheme(R.style.Theme_FadCam_Red);
+                // Save the corrected theme value
+                sharedPreferencesManager.sharedPreferences.edit()
+                        .putString(Constants.PREF_APP_THEME, "Crimson Bloom")
+                        .apply();
+                break;
         }
-        
+
         // Update default clock color based on theme
         sharedPreferencesManager.updateDefaultClockColorForTheme();
     }

@@ -18,11 +18,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new RecordsFragment();
             case 2:
-                return new RemoteFragment();
-            case 3:
                 return new SettingsFragment();
-            case 4:
-                return new AboutFragment();
             default:
                 return new HomeFragment();
         }
@@ -30,6 +26,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 5; // Number of fragments
+        return 3; // Number of fragments
     }
 }

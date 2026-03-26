@@ -23,6 +23,7 @@ import java.util.Random;
 /**
  * PalestineRainView: Animated falling icons for human verification slide.
  * Uses palestine.png as the icon.
+ * del
  */
 public class PalestineRainView extends View {
     private static class IconDrop {

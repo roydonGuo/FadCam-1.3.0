@@ -195,13 +195,7 @@ public class TrashFragment extends BaseFragment implements TrashAdapter.OnTrashI
                                             bottomNav.setSelectedItemId(R.id.navigation_records);
                                             break;
                                         case 2:
-                                            bottomNav.setSelectedItemId(R.id.navigation_remote);
-                                            break;
-                                        case 3:
                                             bottomNav.setSelectedItemId(R.id.navigation_settings);
-                                            break;
-                                        case 4:
-                                            bottomNav.setSelectedItemId(R.id.navigation_about);
                                             break;
                                     }
                                 }

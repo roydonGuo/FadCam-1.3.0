@@ -1497,7 +1497,7 @@ public class RecordingService extends Service {
         if (!isLandscape) {
                 mediaRecorder.setOrientationHint(270); // 270 degrees for portrait front camera
         } else {
-                mediaRecorder.setOrientationHint(180); // 180 degrees for landscape front camera
+                mediaRecorder.setOrientationHint(0); // 0 degrees for landscape front camera
         }
             Log.d(TAG, "Front camera: Setting orientation hint to " + (isLandscape ? "180" : "270") + " degrees");
         } else {

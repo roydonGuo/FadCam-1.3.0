@@ -11,23 +11,23 @@
     <string-array name="languages_array">
         <item>English (English) 🇬🇧</item> <!-- British flag -->
         <item>Chinese (中文) 🇨🇳</item> <!-- Chinese flag -->
-        <item>Arabic (العربية) 🇸🇦</item> <!-- Saudi Arabian flag -->
-        <item>French (Français) 🇲🇫</item> <!-- French flag -->
-        <item>Turkish (Türkiye) 🇹🇷</item> <!-- Turkish flag -->
-        <item>Pashto (پښتو) 🏳️</item> <!-- White flag -->
-        <item>Indonesian (Bahasa) 🇮🇩</item> <!-- Indonesian flag -->
-        <item>Italian (Italiano) 🇮🇹</item> <!-- Italian flag -->
+<!--        <item>Arabic (العربية) 🇸🇦</item> &lt;!&ndash; Saudi Arabian flag &ndash;&gt;-->
+<!--        <item>French (Français) 🇲🇫</item> &lt;!&ndash; French flag &ndash;&gt;-->
+<!--        <item>Turkish (Türkiye) 🇹🇷</item> &lt;!&ndash; Turkish flag &ndash;&gt;-->
+<!--        <item>Pashto (پښتو) 🏳️</item> &lt;!&ndash; White flag &ndash;&gt;-->
+<!--        <item>Indonesian (Bahasa) 🇮🇩</item> &lt;!&ndash; Indonesian flag &ndash;&gt;-->
+<!--        <item>Italian (Italiano) 🇮🇹</item> &lt;!&ndash; Italian flag &ndash;&gt;-->
     </string-array>
 
 
     <string-array name="watermark_options">
-        <item>@string/array_watermark_time_fadcam</item>
+<!--        <item>@string/array_watermark_time_fadcam</item>-->
         <item>@string/array_watermark_timeonly</item>
         <item>@string/array_watermark_nomark</item>
     </string-array>
 
     <string-array name="watermark_values">
-        <item>timestamp_fadcam</item>
+<!--        <item>timestamp_fadcam</item>-->
         <item>timestamp</item>
         <item>no_watermark</item>
     </string-array>

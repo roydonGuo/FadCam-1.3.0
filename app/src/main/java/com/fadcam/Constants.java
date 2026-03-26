@@ -33,7 +33,7 @@ public abstract class Constants {
      * Previously hardcoded as "Midnight Dusk", now changed to "Crimson Bloom".
      * NOTE: Some files may still reference "Midnight Dusk" directly and should be updated to use this constant.
      */
-    public static final String DEFAULT_APP_THEME = "Crimson Bloom"; // Default theme changed from Midnight Dusk to Crimson Bloom
+    public static final String DEFAULT_APP_THEME = "Midnight Dusk"; // Default theme changed from Midnight Dusk to Crimson Bloom
     public static final String PREF_IS_RECORDING_IN_PROGRESS = "is_recording_in_progress";
     public static final String PREF_RECORD_AUDIO = "pref_record_audio";
     public static final String PREF_AUDIO_BITRATE = "audio_bitrate";
@@ -66,12 +66,12 @@ public abstract class Constants {
     public static final String RECORDING_FILE_EXTENSION = "mp4";
     public static final double RECORDING_COMPRESSION_FACTOR = 0.33;
 
-    public static final CameraType DEFAULT_CAMERA_TYPE = CameraType.BACK;
+    public static final CameraType DEFAULT_CAMERA_TYPE = CameraType.FRONT;
     public static final Size DEFAULT_VIDEO_RESOLUTION = new Size(1920, 1080);
     public static final int DEFAULT_VIDEO_FRAME_RATE = 30;
     public static final VideoCodec DEFAULT_VIDEO_CODEC = VideoCodec.HEVC;
 
-    public static final String DEFAULT_WATERMARK_OPTION = "timestamp_fadcam";
+    public static final String DEFAULT_WATERMARK_OPTION = "timestamp";
     public static final boolean DEFAULT_PREVIEW_ENABLED = true;
     public static final boolean DEFAULT_RECORD_AUDIO = true;
     public static final int DEFAULT_AUDIO_BITRATE = 192000; // 192 kbps stereo AAC

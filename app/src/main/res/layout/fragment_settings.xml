@@ -40,6 +40,7 @@
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="#545554"
                 android:text="@string/button_settings_readme"
+                android:visibility="gone"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
             <View
@@ -47,6 +48,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Theme Row (Simple, Consistent) -->
@@ -56,6 +58,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingTop="8dp"
+                android:visibility="gone"
                 android:paddingBottom="8dp">
                 <ImageView
                     android:layout_width="24dp"
@@ -106,6 +109,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:visibility="gone"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"/>
@@ -116,6 +120,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:visibility="gone"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp">
                 <ImageView
@@ -167,6 +172,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:visibility="gone"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"/>
@@ -177,6 +183,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:visibility="gone"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp">
                 <ImageView
@@ -222,6 +229,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:visibility="gone"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"/>
@@ -279,6 +287,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Camera Selection -->
@@ -288,6 +297,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingTop="8dp"
+                android:visibility="gone"
                 android:paddingBottom="8dp">
                 <ImageView
                     android:layout_width="24dp"
@@ -341,7 +351,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"/>
 
 
@@ -574,6 +583,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Video Bitrate Setting -->
@@ -581,6 +591,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 android:gravity="center_vertical"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp">
@@ -625,6 +636,7 @@
             <TextView
                 android:id="@+id/bitrate_helper_textview"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/textAppearanceCaption"
                 android:textColor="?attr/colorHeading"
@@ -645,6 +657,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingTop="8dp"
+                android:visibility="gone"
                 android:paddingBottom="8dp">
                 <ImageView
                     android:layout_width="24dp"
@@ -685,6 +698,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:visibility="gone"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"/>
@@ -695,6 +709,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
+                android:visibility="gone"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp">
                 <ImageView
@@ -785,6 +800,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp"/>
             <!-- END Video Splitting Settings -->
 
@@ -836,8 +852,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginTop="16dp"/>
 
             <!-- Storage Location Settings -->
             <LinearLayout
@@ -924,13 +939,13 @@
                     android:layout_marginTop="4dp"
                     android:textAppearance="@style/textAppearanceCaption"
                     android:textColor="?android:attr/textColorSecondary"
-                    android:visibility="gone"
                     tools:text="/storage/XXXX-XXXX/My Videos"
                     tools:visibility="visible"/>
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:visibility="gone"
                     android:text="@string/storage_location_note"
                     android:textAppearance="@style/textAppearanceCaption"
                     android:textColor="?attr/colorHeading"
@@ -941,7 +956,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"/>
             <!-- End Storage Location Settings -->
 
@@ -1174,6 +1188,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingTop="8dp"
+                android:visibility="gone"
                 android:paddingBottom="8dp">
                 <ImageView
                     android:id="@+id/ic_debug"
@@ -1219,6 +1234,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp"/>
                 
             <!-- Onboarding Toggle -->
@@ -1228,6 +1244,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingTop="8dp"
+                android:visibility="gone"
                 android:paddingBottom="8dp">
                 <ImageView
                     android:id="@+id/ic_onboarding"
@@ -1272,6 +1289,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Auto Update Check Toggle -->
@@ -1281,6 +1299,7 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:paddingTop="8dp"
+                android:visibility="gone"
                 android:paddingBottom="8dp">
                 <ImageView
                     android:id="@+id/ic_auto_update_check"
@@ -1325,6 +1344,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp"/>
 
             <!-- Review Button Section -->
@@ -1332,6 +1352,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:visibility="gone"
                 android:layout_marginBottom="16dp">
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/review_button"

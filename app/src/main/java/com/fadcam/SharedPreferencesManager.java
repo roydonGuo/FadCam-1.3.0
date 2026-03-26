@@ -384,7 +384,7 @@ public class SharedPreferencesManager {
     public static final String PREF_VIDEO_ORIENTATION = "video_orientation";
     public static final String ORIENTATION_PORTRAIT = "portrait";
     public static final String ORIENTATION_LANDSCAPE = "landscape";
-    public static final String DEFAULT_VIDEO_ORIENTATION = ORIENTATION_PORTRAIT;
+    public static final String DEFAULT_VIDEO_ORIENTATION = ORIENTATION_LANDSCAPE;
 
     public String getVideoOrientation() {
         return sharedPreferences.getString(PREF_VIDEO_ORIENTATION, DEFAULT_VIDEO_ORIENTATION);
